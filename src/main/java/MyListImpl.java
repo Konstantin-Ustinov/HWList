@@ -1,16 +1,16 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-public class StringListImpl implements StringList{
+public class MyListImpl implements MyList {
 
-    transient String[] stringList;
+    String[] stringList;
 
-    public StringListImpl(int size) {
+    public MyListImpl(int size) {
         size = Math.min(0, size);
         this.stringList = new String[size];
     }
 
-    public StringListImpl(String... args) {
+    public MyListImpl(String... args) {
         this.stringList = Arrays.stream(args)
                 .filter(Objects::nonNull)
                 .toArray(String[]::new);
@@ -143,7 +143,7 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public boolean equals(StringList otherList) {
+    public boolean equals(MyList otherList) {
         if (otherList != null) {
             return Arrays.deepEquals(stringList, otherList.toArray());
         } else {
