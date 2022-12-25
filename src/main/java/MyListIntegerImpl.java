@@ -195,7 +195,32 @@ public class MyListIntegerImpl implements MyListInteger{
         }
     }
 
-    private static void swapElements(Integer[] arr, int indexA, int indexB) {
+    public void quickSort(int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(integerList, begin, end);
+
+            quickSort(begin, partitionIndex - 1);
+            quickSort(partitionIndex + 1, end);
+        }
+    }
+
+    private int partition(Integer[] arr, int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+
+                swapElements(arr, i, j);
+            }
+        }
+
+        swapElements(arr, i + 1, end);
+        return i + 1;
+    }
+
+    private void swapElements(Integer[] arr, int indexA, int indexB) {
         int tmp = arr[indexA];
         arr[indexA] = arr[indexB];
         arr[indexB] = tmp;

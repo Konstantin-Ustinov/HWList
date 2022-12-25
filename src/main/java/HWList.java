@@ -54,13 +54,13 @@ public class HWList {
 
         System.out.println("Работа с числами");
 
-        MyListIntegerImpl arr1 = new MyListIntegerImpl(100_000);
+        MyListIntegerImpl arr1 = new MyListIntegerImpl(100);
         MyListIntegerImpl arr2, arr3;
-        Random random = new Random(100_000);
-        for (int i = 0; i < 1_000; i++) {
+        Random random = new Random(100);
+        for (int i = 0; i < 100; i++) {
             arr1.add(random.nextInt());
         }
-//        arr2 = arr1;
+        arr2 = arr1;
 //        arr3 = arr1;
 
         System.out.println(Arrays.toString(arr1.toArray()));
@@ -87,7 +87,14 @@ public class HWList {
 
         System.out.println(Arrays.toString(arr1.toArray()));
 
-        System.out.println("Массив содержит число 1231231233? -" + arr1.contains(1231231233));
+        System.out.println("Массив содержит число 123? -" + arr1.contains(123));
+
+        System.out.println("Сортировка рекурсией");
+        System.out.println("Исходный массив: " + Arrays.toString(arr2.toArray()));
+        arr2.quickSort(0, arr2.size() - 1);
+        System.out.println("Отсортированный массив: " + Arrays.toString(arr2.toArray()));
+
+
         List<String> list = new ArrayList<>();
     }
 

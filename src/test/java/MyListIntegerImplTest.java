@@ -112,4 +112,13 @@ class MyListIntegerImplTest {
         out.sortSelection();
         assertArrayEquals(test, out.toArray());
     }
+
+    @Test
+    void quickSort() {
+        Integer[] test = new Integer[]{1, 2, 3};
+        out.set(0, 3);
+        out.add(1);
+        out.quickSort(0, out.size() - 1);
+        assertArrayEquals(test, out.toArray());
+    }
 }
